@@ -1,0 +1,20 @@
+{
+  "name": "big-mat",
+  "version": "0.0.0",
+  "description": "very large matrix multiplication",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha"
+  },
+  "keywords": [
+    "matrix",
+    "multiplication",
+    "math"
+  ],
+  "author": "Matt Owen <not.mattowen@gmail.com>",
+  "license": "UNLICENSE",
+  "dependencies": {
+    "expect.js": "^0.3.1",
+    "mocha": "^1.21.4"
+  }
+}
