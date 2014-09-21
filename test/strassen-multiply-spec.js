@@ -54,19 +54,21 @@ describe('strassen-multiplication', function () {
    * @return {[type]} [description]
    */
   it('should correctly multiply the identity matrix', function () {
-    var A = new matrix(3, 3), B = new matrix(3, 1);
+    var A = new matrix(2, 2), B = new matrix(2, 2);
     
     A.define([
-      1, 0, 0,
-      0, 1, 0,
-      0, 0, 1
+      1, 0,
+      0, 1
     ]);
 
-    B.define([1, 2, 3]);
+    B.define([
+      1, 2,
+      3, 4
+    ]);
 
     var C = multiply(A, B);
 
-    expect(C.toArray()).to.be.eql([1, 2, 3]);
+    expect(C.toArray()).to.be.eql([1, 2, 3 , 4]);
   });
 
 });
