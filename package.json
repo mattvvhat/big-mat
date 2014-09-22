@@ -1,10 +1,10 @@
 {
   "name": "big-mat",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "very large matrix multiplication",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha"
+    "test": "./node_modules/mocha/bin/mocha --reporter spec"
   },
   "keywords": [
     "matrix",
