@@ -11,6 +11,17 @@ function matrix (row, col) {
 }
 
 /**
+ * Copy Matrix
+ * @return {[type]} [description]
+ */
+matrix.prototype.copy = function () {
+  var clone = new matrix(this.row, this.col);
+  // clone.entries = this.entries;
+  clone.entries.set(this.entries);
+  return clone;
+};
+
+/**
  * [define description]
  * @param  {[type]} vals [description]
  * @return {[type]}      [description]
