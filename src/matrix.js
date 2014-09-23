@@ -16,7 +16,6 @@ function matrix (row, col) {
  */
 matrix.prototype.copy = function () {
   var clone = new matrix(this.row, this.col);
-  // clone.entries = this.entries;
   clone.entries.set(this.entries);
   return clone;
 };

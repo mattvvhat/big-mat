@@ -31,7 +31,6 @@ describe('matrix', function () {
 
   it('should create a new copy *NOT* a reference', function () {
     var A = new matrix(3, 3);
-    
     A.define([
       Math.random(), Math.random(), Math.random(),
       Math.random(), Math.random(), Math.random(),
@@ -39,7 +38,6 @@ describe('matrix', function () {
     ]);
 
     var B = A.copy();
-    
     B.set(0, 0, -1);
 
     expect(A.toArray()).to.not.eql(B.toArray());
