@@ -43,4 +43,35 @@ describe('matrix', function () {
     expect(A.toArray()).to.not.eql(B.toArray());
   });
 
+  it('should pad rows', function () {
+    var A = new matrix(3, 3);
+    A.define([
+      1, 1, 1,
+      1, 1, 1,
+      1, 1, 1
+    ]);
+    A.pad(4, 4);
+    expect(A.size()).to.eql([4,4]);
+    expect(A.toArray()).to.eql([
+      1, 1, 1, 0,
+      1, 1, 1, 0,
+      1, 1, 1, 0,
+      0, 0, 0, 0
+    ]);
+
+    A.pad(4, 5);
+    expect(A.size()).to.eql([4, 5]);
+
+    A.pad(6, 5);
+    expect(A.size()).to.eql([6, 5]);
+    expect(A.toArray()).to.eql([
+      1, 1, 1, 0, 0,
+      1, 1, 1, 0, 0,
+      1, 1, 1, 0, 0,
+      0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0,
+    ]);
+  });
+
 });

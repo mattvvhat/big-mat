@@ -21,6 +21,55 @@ matrix.prototype.copy = function () {
 };
 
 /**
+ * [pad description]
+ * @return {[type]} [description]
+ */
+matrix.prototype.pad = function (rows, cols) {
+  var old_entries = this.entries;
+  this.entries = new Float32Array(rows * cols);
+  for (var i=0; i < this.row; i++) {
+    for (var j=0; j < this.col; j++) {
+      this.entries[cols*i+j] = old_entries[this.col*i+j];
+    }
+  }
+  this.row = rows;
+  this.col = cols;
+  delete old_entries;
+  return this;
+};
+
+/**
+ * [pad_row description]
+ * @return {[type]} [description]
+ */
+matrix.prototype.pad_row = function () {
+  var old_entries = this.entries;
+  this.entries = new Float32Array(old_entries.length + this.col);
+  this.row++;
+  this.entries.set(old_entries);
+  delete old_entries;
+  return this;
+};
+
+/**
+ * [pad_col description]
+ * @return {[type]} [description]
+ */
+matrix.prototype.pad_col = function () {
+  var old_entries = this.entries;
+  this.entries = new Float32Array(old_entries.length + this.row);
+  this.col++;
+  this.entries.set(old_entries);
+  for (var i=0; i < this.row; i++) {
+    for (var j=0; j < this.col; j++) {
+      this.entries[i*this.col + j] = old_entries[i*(this.col-1)+j];
+    }
+  }
+  delete old_entries;
+  return this;
+};
+
+/**
  * [define description]
  * @param  {[type]} vals [description]
  * @return {[type]}      [description]
