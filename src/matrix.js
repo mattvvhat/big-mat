@@ -11,6 +11,23 @@ function matrix (row, col) {
 }
 
 /**
+ * Chop Numerically Insignificant Values
+ * @param {Number}  cutoff threshold to set value to 0
+ * @return {Matrix}        this matrix
+ */
+matrix.prototype.chop = function (cutoff) {
+  cutoff = cutoff || 0.0000005;
+  for (var i=0; i < this.row; i++) {
+    for (var j=0; j < this.col; j++) {
+      var index = cols*i + j;
+      if (Math.abs(this.entries[index]) < cutoff)
+        this.entries[index] = 0;
+    }
+  }
+  return this;
+}
+
+/**
  * Copy Matrix
  * @return {[type]} [description]
  */
